@@ -1,6 +1,9 @@
-# WebGame
+# WebGame一个开源的Web游戏库
 
-This template should help get you started developing with Vue 3 in Vite.
+目前暂使用的技术
+vue3（前端框架） + typescript（js） + naive-ui（组件库） + mongoDB（介于关系数据库和非关系数据库） + Three.js（WebGL引擎）
+
+可以自行pull然后编写，上传自己开发的游戏
 
 ## Recommended IDE Setup
 
