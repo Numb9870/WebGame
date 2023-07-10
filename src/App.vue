@@ -1,8 +1,12 @@
 <template>
-  <n-config-provider :locale="enUS" :date-locale="dateEnUS">
+  <n-config-provider :locale="zhCN" :date-locale="dateZhCN" :theme="darkTheme">
 
     <n-layout>
-      <n-layout-header>导航</n-layout-header>
+
+      <!-- 导航 -->
+      <n-layout-header>
+        <Navigation />
+      </n-layout-header>
 
       <n-layout has-sider>
         <n-layout-sider content-style="padding: 24px;">
@@ -21,7 +25,20 @@
 </template>
   
 <script setup lang='ts'>
-import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU } from 'naive-ui'
+import Navigation from '@/views/Navigation.vue'
+
+import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU, darkTheme } from 'naive-ui'
 </script>
   
-<style></style>
+<style scoped lang="less">
+.n-layout-header,
+.n-layout-footer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.n-layout-sider {
+  height: calc(100vh - 160px) !important;
+}
+</style>
