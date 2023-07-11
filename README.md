@@ -4,7 +4,7 @@
 
 vue3（前端框架） + typescript（js） + naive-ui（组件库） + mongoDB（介于关系数据库和非关系数据库） + Three.js（WebGL引擎）
 
-可以自行pull，编写、上传自己开发的游戏。（本质上开发vue的组件）
+可以自行fork编写自己开发的游戏。（本质上开发vue的组件，所以您可以使用您所熟悉的开源库）
 
 ## Recommended IDE Setup
 
