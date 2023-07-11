@@ -8,12 +8,12 @@
 
         <!-- 搜索框 -->
         <n-gi :span="8">
-            <n-input size="large" round placeholder="大" />
+            <n-input size="large" round :placeholder="t('NavigationInputPlaceholder')" />
         </n-gi>
 
         <!-- 语言切换/个人信息/网站设置 -->
         <n-gi :span="6">
-            <n-dropdown trigger="hover" :options="languageOptions">
+            <n-dropdown trigger="hover" :options="languageOptions" @select="handelLanguageSelect">
                 <n-button strong secondary>
                     <template #icon>
                         <n-icon>
@@ -28,13 +28,14 @@
 </template>
     
 <script setup lang='ts'>
-import { NIcon, type MenuOption } from 'naive-ui'
+import { NIcon, type MenuOption, type DropdownOption } from 'naive-ui'
 import { ref, h, type Component } from 'vue';
 import { GameControllerOutline, LanguageOutline } from '@vicons/ionicons5'
 import { FistRaised } from '@vicons/fa'
 import { H5 } from '@vicons/tabler'
 import { Md3DRotationOutlined } from '@vicons/material'
 import { LogoVmware, ContentDeliveryNetwork } from '@vicons/carbon'
+import useLocale from '@/Lang/useI18n'
 
 /* ================================导航菜单配置项======================================= */
 const activeKey = ref('')   // 菜单当前的选中值
@@ -118,6 +119,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
 
 
 /* ================================语言切换======================================= */
+const { changeLocale, t } = useLocale()
 const languageOptions = [
     {
         label: '中文',
@@ -132,6 +134,11 @@ const languageOptions = [
         key: 'ruRU'
     }
 ]
+const handelLanguageSelect = async (key: string | number, option: DropdownOption) => {  // 语言切换
+    changeLocale(key as string)
+}
+
+
 /* ================================个人信息/网站设置======================================= */
 
 

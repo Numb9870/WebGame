@@ -3,22 +3,11 @@ import './assets/css/iconfont.js'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createI18n } from 'vue-i18n'
+import { createI18n } from "vue-i18n";
+import { i18n } from '@/Lang/i18n'
 
 import App from './App.vue'
 import router from './router'
-
-import languageConfig from './language.json'
-
-console.log(languageConfig)
-// 配置i18n
-const i18n = createI18n({
-    globalInjection: true, // 全局生效$t 
-    legacy: false,
-    locale: 'zhCN',
-    fallbackLocale: 'zhCN',
-    languageConfig,
-})
 
 const app = createApp(App)
 
