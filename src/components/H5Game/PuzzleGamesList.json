@@ -1,0 +1,14 @@
+[
+    {
+        "author": "official",
+        "update": "2023-7-12",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "No": "v0.0.1",
+                "describe": "最原始的版本"
+            }
+        ]
+    }
+]

@@ -7,8 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    FightingGamesList: typeof import('./src/components/H5Game/FightingGamesList.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NCard: typeof import('naive-ui')['NCard']
     NCol: typeof import('naive-ui')['NCol']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDatePicker: typeof import('naive-ui')['NDatePicker']

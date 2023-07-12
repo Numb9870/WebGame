@@ -2,12 +2,12 @@
     <n-grid x-gap="24" :cols="24">
 
         <!-- 导航左侧分类 -->
-        <n-gi :span="12">
+        <n-gi :span="14">
             <n-menu v-model="activeKey" mode="horizontal" :options="menuOptions" />
         </n-gi>
 
         <!-- 搜索框 -->
-        <n-gi :span="8">
+        <n-gi :span="6">
             <n-input size="large" round :placeholder="t('NavigationInputPlaceholder')" />
         </n-gi>
 
@@ -21,6 +21,7 @@
                             <LanguageOutline />
                         </n-icon>
                     </template>
+                    {{ SystemConfigStore.NDateLocale }}
                 </n-button>
             </n-dropdown>
             <!-- 深色明亮模式--bug:首次渲染时不显示自定义template中的sort（unchecked-icon） -->
@@ -61,7 +62,7 @@ const instance = getCurrentInstance() // 当前组件this
 const SystemConfigStore = useSystemConfigStore() // 系统设置store
 const props = defineProps(['theme'])
 const message = useMessage()
-
+const { changeLocale, t } = useLocale() // i18n实例化以及一些常用方法
 
 
 /* =============================导航菜单配置项==================================== */
@@ -93,7 +94,16 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
         key: "H5Game",
         children: [
             {
-                label: '格斗类',
+                label: () =>
+                    h(
+                        RouterLink,
+                        {
+                            to: {
+                                name: 'FightingGamesList',
+                            }
+                        },
+                        { default: () => t('NavbarItem.Fighting') }
+                    ),
                 key: 'FightingGames',
                 icon: renderFontIcon("icon-sanda")
             },
@@ -106,7 +116,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
                                 name: 'PuzzleGamesList',
                             }
                         },
-                        { default: () => '益智类' }
+                        { default: () => t('NavbarItem.Puzzle') }
                     ),
                 key: 'PuzzleGames',
                 icon: renderFontIcon("icon-yizhipintu")
@@ -172,7 +182,6 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
 
 
 /* ================================语言切换======================================= */
-const { changeLocale, t } = useLocale() // i18n实例化以及一些常用方法
 const languageOptions = [ // 下拉配置项
     {
         label: '中文',
@@ -183,7 +192,7 @@ const languageOptions = [ // 下拉配置项
         key: "enUS"
     },
     {
-        label: 'Русский язык',
+        label: 'Россия',
         key: 'ruRU'
     }
 ]
@@ -192,14 +201,15 @@ const handleLanguageSelect = async (key: string, option: DropdownOption) => {  /
     changeLocale(key as string)
 
     if (key == "zhCN") {
-        SystemConfigStore.changeLanguageStore(key, "dateZhCN")
+        SystemConfigStore.changeLanguageStore(key, "中文")
     } else if (key == "enUS") {
-        SystemConfigStore.changeLanguageStore(key, "dateEnUS")
+        SystemConfigStore.changeLanguageStore(key, "English")
     } else {
-        SystemConfigStore.changeLanguageStore(key, "dateRuRU")
+        SystemConfigStore.changeLanguageStore(key, "Россия")
     }
 
     instance?.proxy?.$Bus.emit("changeLanguage", key)
+
 }
 
 

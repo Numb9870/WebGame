@@ -3,18 +3,19 @@
 
     <n-message-provider>
 
-      <n-layout>
-        
-        <!-- 导航 -->
-        <n-layout-header>
-          <Navigation :theme="theme !== null" />
-        </n-layout-header>
+        <n-layout>
 
-        <router-view></router-view>
+          <!-- 导航 -->
+          <n-layout-header>
+            <Navigation :theme="theme !== null" />
+          </n-layout-header>
 
-        <n-layout-footer>页脚</n-layout-footer>
+          <router-view></router-view>
 
-      </n-layout>
+          <n-layout-footer>页脚</n-layout-footer>
+
+        </n-layout>
+
     </n-message-provider>
 
   </n-config-provider>
@@ -90,6 +91,4 @@ instance?.proxy?.$Bus.on("changeLanguage", async function (params: any) {
   display: flex;
   align-items: center;
 }
-
-
 </style>

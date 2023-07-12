@@ -10,6 +10,11 @@ const router = createRouter({
       component: () => import('../components/Main.vue')
     },
     {
+      path: '/FightingGamesList',
+      name: 'FightingGamesList',
+      component: () => import('../components/H5Game/FightingGamesList.vue')
+    },
+    {
       path: '/PuzzleGamesList',
       name: 'PuzzleGamesList',
       component: () => import('../components/H5Game/PuzzleGamesList.vue')
