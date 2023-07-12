@@ -1,11 +1,11 @@
 <template>
-  <n-config-provider :locale="locale" :date-locale="dateLocale" :theme="theme">
+  <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
 
     <n-layout>
 
       <!-- 导航 -->
       <n-layout-header>
-        <Navigation />
+        <Navigation :theme="theme !== null" />
       </n-layout-header>
 
       <n-layout has-sider>

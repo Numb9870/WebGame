@@ -2,7 +2,7 @@
     <n-grid x-gap="24" :cols="24">
 
         <!-- 导航左侧分类 -->
-        <n-gi :span="10">
+        <n-gi :span="12">
             <n-menu v-model="activeKey" mode="horizontal" :options="menuOptions" />
         </n-gi>
 
@@ -11,8 +11,8 @@
             <n-input size="large" round :placeholder="t('NavigationInputPlaceholder')" />
         </n-gi>
 
-        <!-- 语言切换/深色明亮模式/个人信息/网站设置 -->
-        <n-gi :span="6" class="nav-last-module">
+        <!-- 语言切换/深色明亮模式/个人信息 -->
+        <n-gi :span="4" class="nav-last-module">
             <!-- 语言切换 -->
             <n-dropdown trigger="hover" show-arrow :options="languageOptions" @select="handleLanguageSelect">
                 <n-button strong secondary>
@@ -25,13 +25,18 @@
             </n-dropdown>
             <!-- 深色明亮模式--bug:首次渲染时不显示自定义template中的sort（unchecked-icon） -->
             <n-switch v-model:value="theme" size="large" @update:value="handleThemeChange">
-                <template #checked-icon>
+                <template #checked>
                     <n-icon :component="MoonStars" />
                 </template>
-                <template #unchecked-icon>
+                <template #unchecked>
                     <n-icon :component="Sun" />
                 </template>
             </n-switch>
+            <!-- 个人信息 -->
+            <n-button type="info" text size="medium" @click="" >登陆</n-button>
+            <n-button type="info" text size="medium" @click="" >注册</n-button>
+            
+
         </n-gi>
 
     </n-grid>
@@ -42,26 +47,19 @@ import { NIcon, type MenuOption, type DropdownOption } from 'naive-ui'
 import { GameControllerOutline, LanguageOutline } from '@vicons/ionicons5'
 import { FistRaised } from '@vicons/fa'
 import { H5, Sun, MoonStars } from '@vicons/tabler'
-import { Md3DRotationOutlined } from '@vicons/material'
+import { Md3DRotationOutlined, SourceFilled } from '@vicons/material'
 import { LogoVmware, ContentDeliveryNetwork } from '@vicons/carbon'
 import useLocale from '@/Lang/useI18n'
 import { useSystemConfigStore } from '@/stores'
 
 // 组件内公用
-onBeforeMount(() => {
-    if (SystemConfigStore.theme !== null) {
-        theme.value = true
-    } else {
-        theme.value = false
-    }
-})
-
 onUnmounted(() => {
     instance?.proxy?.$Bus.off("changeTheme")
     instance?.proxy?.$Bus.off("changeLanguage")
 })
 const instance = getCurrentInstance() // 当前组件this
 const SystemConfigStore = useSystemConfigStore() // 系统设置store
+const props = defineProps(['theme'])
 
 
 
@@ -80,7 +78,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
             return h(
                 'a',
                 {
-                    href: '/',
+                    href: 'javascript:;',
                     rel: 'WebGame'
                 },
                 'WebGame',
@@ -140,6 +138,18 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
             }
         ],
         icon: renderIcon(LogoVmware)
+    },
+    {
+        // 游戏资源
+        label: "GameSource",
+        key: "GameSource",
+        children: [
+            {
+                label: 'null',
+                key: 'null',
+            }
+        ],
+        icon: renderIcon(SourceFilled)
     }
 ]
 
@@ -148,7 +158,6 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
 
 
 /* ================================语言切换======================================= */
-
 const { changeLocale, t } = useLocale() // i18n实例化以及一些常用方法
 const languageOptions = [ // 下拉配置项
     {
@@ -179,13 +188,15 @@ const handleLanguageSelect = async (key: string, option: DropdownOption) => {  /
     instance?.proxy?.$Bus.emit("changeLanguage", key)
 }
 
+
 /* ==============================深色明亮模式===================================== */
-const theme = ref(false)
+const theme = ref(props.theme)
 const handleThemeChange = async function (value: boolean) {
-    value ? instance?.proxy?.$Bus.emit("changeTheme", { type: true }) : instance?.proxy?.$Bus.emit("changeTheme", { type: false })
+    instance?.proxy?.$Bus.emit("changeTheme", { type: value })
 }
 
-/* ============================个人信息/网站设置=================================== */
+
+/* ============================个人信息=================================== */
 
 
 </script>
@@ -194,6 +205,6 @@ const handleThemeChange = async function (value: boolean) {
 .nav-last-module {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 </style>
