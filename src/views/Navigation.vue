@@ -33,9 +33,8 @@
                 </template>
             </n-switch>
             <!-- 个人信息 -->
-            <n-button type="info" text size="medium" @click="" >登陆</n-button>
-            <n-button type="info" text size="medium" @click="" >注册</n-button>
-            
+            <n-button type="info" text size="medium" @click="loginEvent">登陆</n-button>
+            <n-button type="info" text size="medium" @click="loginEvent">注册</n-button>
 
         </n-gi>
 
@@ -43,7 +42,7 @@
 </template>
     
 <script setup lang='ts'>
-import { NIcon, type MenuOption, type DropdownOption } from 'naive-ui'
+import { NIcon, useMessage, type MenuOption, type DropdownOption } from 'naive-ui'
 import { GameControllerOutline, LanguageOutline } from '@vicons/ionicons5'
 import { FistRaised } from '@vicons/fa'
 import { H5, Sun, MoonStars } from '@vicons/tabler'
@@ -60,6 +59,7 @@ onUnmounted(() => {
 const instance = getCurrentInstance() // 当前组件this
 const SystemConfigStore = useSystemConfigStore() // 系统设置store
 const props = defineProps(['theme'])
+const message = useMessage()
 
 
 
@@ -197,7 +197,14 @@ const handleThemeChange = async function (value: boolean) {
 
 
 /* ============================个人信息=================================== */
-
+const loginEvent = async () => {
+    message.info(
+        "还没做，嘻嘻。。",
+        {
+            keepAliveOnHover: true
+        }
+    )
+}
 
 </script>
     

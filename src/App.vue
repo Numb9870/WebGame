@@ -1,25 +1,28 @@
 <template>
   <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
 
-    <n-layout>
+    <n-message-provider>
 
-      <!-- 导航 -->
-      <n-layout-header>
-        <Navigation :theme="theme !== null" />
-      </n-layout-header>
+      <n-layout>
+        
+        <!-- 导航 -->
+        <n-layout-header>
+          <Navigation :theme="theme !== null" />
+        </n-layout-header>
 
-      <n-layout has-sider>
-        <n-layout-sider content-style="padding: 24px;">
-          侧栏
-        </n-layout-sider>
-        <n-layout-content content-style="padding: 24px;">
-          内容
-        </n-layout-content>
+        <n-layout has-sider>
+          <n-layout-sider content-style="padding: 24px;">
+            侧栏
+          </n-layout-sider>
+          <n-layout-content content-style="padding: 24px;">
+            内容
+          </n-layout-content>
+        </n-layout>
+
+        <n-layout-footer>页脚</n-layout-footer>
+
       </n-layout>
-
-      <n-layout-footer>页脚</n-layout-footer>
-
-    </n-layout>
+    </n-message-provider>
 
   </n-config-provider>
 </template>
