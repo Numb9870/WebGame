@@ -7,12 +7,15 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    Main: typeof import('./src/components/Main.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
+    NCol: typeof import('naive-ui')['NCol']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
     NDatePicker: typeof import('naive-ui')['NDatePicker']
     NDropdown: typeof import('naive-ui')['NDropdown']
     NGi: typeof import('naive-ui')['NGi']
     NGrid: typeof import('naive-ui')['NGrid']
+    NIcon: typeof import('naive-ui')['NIcon']
     NInput: typeof import('naive-ui')['NInput']
     NLayout: typeof import('naive-ui')['NLayout']
     NLayoutContent: typeof import('naive-ui')['NLayoutContent']
@@ -21,8 +24,11 @@ declare module 'vue' {
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NRow: typeof import('naive-ui')['NRow']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
+    NStatistic: typeof import('naive-ui')['NStatistic']
     NSwitch: typeof import('naive-ui')['NSwitch']
+    PuzzleGamesList: typeof import('./src/components/H5Game/PuzzleGamesList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

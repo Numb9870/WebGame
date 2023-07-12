@@ -10,14 +10,7 @@
           <Navigation :theme="theme !== null" />
         </n-layout-header>
 
-        <n-layout has-sider>
-          <n-layout-sider content-style="padding: 24px;">
-            侧栏
-          </n-layout-sider>
-          <n-layout-content content-style="padding: 24px;">
-            内容
-          </n-layout-content>
-        </n-layout>
+        <router-view></router-view>
 
         <n-layout-footer>页脚</n-layout-footer>
 
@@ -32,6 +25,7 @@ import Navigation from '@/views/Navigation.vue'
 import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU, darkTheme, type NLocale, type NDateLocale, type GlobalTheme } from 'naive-ui'
 import { useSystemConfigStore } from './stores';
 import useLocale from '@/Lang/useI18n'
+import { RouterLink } from 'vue-router'
 
 // 组件内公用
 const theme = ref<GlobalTheme | null>(null) // 主题
@@ -97,7 +91,5 @@ instance?.proxy?.$Bus.on("changeLanguage", async function (params: any) {
   align-items: center;
 }
 
-.n-layout-sider {
-  height: calc(100vh - 160px) !important;
-}
+
 </style>

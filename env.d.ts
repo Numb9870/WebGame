@@ -2,3 +2,5 @@
 
 
 declare module '@vicons/carbon'
+declare module '@vicons/ionicons4'
+declare module '@vicons/fluent'

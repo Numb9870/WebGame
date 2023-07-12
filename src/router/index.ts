@@ -4,12 +4,16 @@ import { createRouter, createWebHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-/*     {
+    {
       path: '/',
-      name: 'home',
-      component: () => import('../views/AboutView.vue')
-    }, */
-
+      name: 'Main',
+      component: () => import('../components/Main.vue')
+    },
+    {
+      path: '/PuzzleGamesList',
+      name: 'PuzzleGamesList',
+      component: () => import('../components/H5Game/PuzzleGamesList.vue')
+    },
   ]
 })
 

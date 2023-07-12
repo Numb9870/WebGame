@@ -50,6 +50,7 @@ import { Md3DRotationOutlined, SourceFilled } from '@vicons/material'
 import { LogoVmware, ContentDeliveryNetwork } from '@vicons/carbon'
 import useLocale from '@/Lang/useI18n'
 import { useSystemConfigStore } from '@/stores'
+import { RouterLink } from 'vue-router'
 
 // 组件内公用
 onUnmounted(() => {
@@ -74,16 +75,15 @@ function renderFontIcon(icon: String) { // 渲染fonticon
 const menuOptions: MenuOption[] = [ // 菜单的数据
     {
         // logo
-        label: () => {
-            return h(
-                'a',
-                {
-                    href: 'javascript:;',
-                    rel: 'WebGame'
+        label: () => h(
+            RouterLink,
+            {
+                to: {
+                    name: "Main"
                 },
-                'WebGame',
-            )
-        },
+            },
+            { default: () => 'WebGame' }
+        ),
         key: 'WebGameLogo',
         icon: renderIcon(GameControllerOutline)
     },
@@ -95,7 +95,21 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
             {
                 label: '格斗类',
                 key: 'FightingGames',
-                icon: renderIcon(FistRaised)
+                icon: renderFontIcon("icon-sanda")
+            },
+            {
+                label: () =>
+                    h(
+                        RouterLink,
+                        {
+                            to: {
+                                name: 'PuzzleGamesList',
+                            }
+                        },
+                        { default: () => '益智类' }
+                    ),
+                key: 'PuzzleGames',
+                icon: renderFontIcon("icon-yizhipintu")
             }
         ],
         icon: renderIcon(H5)
