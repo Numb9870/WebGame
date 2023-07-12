@@ -7,7 +7,9 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
+    2048: typeof import('./src/components/H5Game/PuzzleGames/2048.vue')['default']
     FightingGamesList: typeof import('./src/components/H5Game/FightingGamesList.vue')['default']
+    GameDescribe: typeof import('./src/components/GameDescribe.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
@@ -26,10 +28,13 @@ declare module 'vue' {
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
     NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
+    NPopover: typeof import('naive-ui')['NPopover']
     NRow: typeof import('naive-ui')['NRow']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
+    NSelect: typeof import('naive-ui')['NSelect']
     NStatistic: typeof import('naive-ui')['NStatistic']
     NSwitch: typeof import('naive-ui')['NSwitch']
+    NTooltip: typeof import('naive-ui')['NTooltip']
     PuzzleGamesList: typeof import('./src/components/H5Game/PuzzleGamesList.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

@@ -17,8 +17,16 @@ const router = createRouter({
     {
       path: '/PuzzleGamesList',
       name: 'PuzzleGamesList',
-      component: () => import('../components/H5Game/PuzzleGamesList.vue')
+      component: () => import('../components/H5Game/PuzzleGamesList.vue'),
+      children: [
+        {
+          path: "2048",
+          name: "2048",
+          component: () => import('../components/H5Game/PuzzleGames/2048.vue')
+        }
+      ]
     },
+
   ]
 })
 

@@ -1,13 +1,221 @@
 [
     {
         "author": "official",
-        "update": "2023-7-12",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
         "src": "src/assets/img/PuzzleGamesCover/2048.png",
         "version": [
             {
                 "GameName": "2048",
-                "No": "v0.0.1",
-                "describe": "最原始的版本"
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
+            }
+        ]
+    },
+    {
+        "author": "official",
+        "updateTime": "2023-7-12",
+        "GameName": "2048",
+        "src": "src/assets/img/PuzzleGamesCover/2048.png",
+        "version": [
+            {
+                "GameName": "2048",
+                "label": "v0.0.1",
+                "key": "v0.0.1",
+                "value": "1",
+                "describe": "经典的增压游戏，这个版本是最原始的。"
+            },
+            {
+                "GameName": "2048",
+                "label": "v0.0.2",
+                "key": "v0.0.2",
+                "value": "2",
+                "describe": "原始版本基础上，添加了狂暴模式"
             }
         ]
     }

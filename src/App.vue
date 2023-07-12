@@ -1,7 +1,8 @@
 <template>
-  <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
+  
+    <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
 
-    <n-message-provider>
+      <n-message-provider>
 
         <n-layout>
 
@@ -16,9 +17,10 @@
 
         </n-layout>
 
-    </n-message-provider>
+      </n-message-provider>
 
-  </n-config-provider>
+    </n-config-provider>
+  
 </template>
   
 <script setup lang='ts'>
@@ -85,6 +87,7 @@ instance?.proxy?.$Bus.on("changeLanguage", async function (params: any) {
 </script>
   
 <style scoped lang="less">
+
 .n-layout-header,
 .n-layout-footer {
   height: 80px;

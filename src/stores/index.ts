@@ -8,7 +8,7 @@ export const useSystemConfigStore = defineStore(Names.SystemConfig, {
     theme: null,
     NLocale: "zhCN",
     NDateLocale: "中文",
-    showDataType: "List"
+    showDataType: "Grid"
   }),
   actions: {
     changeThemeStore(type: GlobalTheme | null) {

@@ -58,10 +58,10 @@ onUnmounted(() => {
     instance?.proxy?.$Bus.off("changeTheme")
     instance?.proxy?.$Bus.off("changeLanguage")
 })
+const props = defineProps(['theme'])
 const instance = getCurrentInstance() // 当前组件this
 const SystemConfigStore = useSystemConfigStore() // 系统设置store
-const props = defineProps(['theme'])
-const message = useMessage()
+const message = useMessage() // 使用naveu-ui的message
 const { changeLocale, t } = useLocale() // i18n实例化以及一些常用方法
 
 
