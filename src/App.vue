@@ -1,5 +1,5 @@
 <template>
-  <n-config-provider :locale="zhCN" :date-locale="dateZhCN" :theme="darkTheme">
+  <n-config-provider :locale="locale" :date-locale="dateLocale" :theme="theme">
 
     <n-layout>
 
@@ -13,7 +13,7 @@
           侧栏
         </n-layout-sider>
         <n-layout-content content-style="padding: 24px;">
-          内容区
+          内容
         </n-layout-content>
       </n-layout>
 
@@ -26,8 +26,64 @@
   
 <script setup lang='ts'>
 import Navigation from '@/views/Navigation.vue'
+import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU, darkTheme, type NLocale, type NDateLocale, type GlobalTheme } from 'naive-ui'
+import { useSystemConfigStore } from './stores';
+import useLocale from '@/Lang/useI18n'
 
-import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU, darkTheme } from 'naive-ui'
+// 组件内公用
+const theme = ref<GlobalTheme | null>(null) // 主题
+const locale = ref<NLocale | null>(null) // 语言类型
+const dateLocale = ref<NDateLocale | null>(null) // 语言数据
+const instance = getCurrentInstance() // 实例
+const SystemConfigStore = useSystemConfigStore() // 系统设置store
+const { changeLocale } = useLocale() // i18n实例化以及一些常用方法
+
+// init
+onBeforeMount(() => {
+  // 修改主题
+  theme.value = SystemConfigStore.theme
+  // 修改语言
+  if (SystemConfigStore.NLocale == "zhCN") {
+    locale.value = zhCN
+    dateLocale.value = dateZhCN
+    changeLocale("zhCN")
+  } else if (SystemConfigStore.NLocale == "enUS") {
+    locale.value = enUS
+    dateLocale.value = dateEnUS
+    changeLocale("enUS")
+  } else {
+    locale.value = ruRU
+    dateLocale.value = dateRuRU
+    changeLocale("ruRU")
+  }
+})
+
+
+// 监听修改主题的变化
+instance?.proxy?.$Bus.on("changeTheme", async function (params: any) {
+  if (params.type) {
+    theme.value = darkTheme
+    SystemConfigStore.changeThemeStore(darkTheme)
+  } else {
+    theme.value = null
+    SystemConfigStore.changeThemeStore(null)
+  }
+})
+
+// 监听修改语言的变化
+instance?.proxy?.$Bus.on("changeLanguage", async function (params: any) {
+  if (params == "zhCN") {
+    locale.value = zhCN
+    dateLocale.value = dateZhCN
+  } else if (params == "enUS") {
+    locale.value = enUS
+    dateLocale.value = dateEnUS
+  } else {
+    locale.value = ruRU
+    dateLocale.value = dateRuRU
+  }
+})
+
 </script>
   
 <style scoped lang="less">

@@ -11,9 +11,10 @@
             <n-input size="large" round :placeholder="t('NavigationInputPlaceholder')" />
         </n-gi>
 
-        <!-- 语言切换/个人信息/网站设置 -->
-        <n-gi :span="6">
-            <n-dropdown trigger="hover" :options="languageOptions" @select="handelLanguageSelect">
+        <!-- 语言切换/深色明亮模式/个人信息/网站设置 -->
+        <n-gi :span="6" class="nav-last-module">
+            <!-- 语言切换 -->
+            <n-dropdown trigger="hover" show-arrow :options="languageOptions" @select="handleLanguageSelect">
                 <n-button strong secondary>
                     <template #icon>
                         <n-icon>
@@ -22,6 +23,15 @@
                     </template>
                 </n-button>
             </n-dropdown>
+            <!-- 深色明亮模式--bug:首次渲染时不显示自定义template中的sort（unchecked-icon） -->
+            <n-switch v-model:value="theme" size="large" @update:value="handleThemeChange">
+                <template #checked-icon>
+                    <n-icon :component="MoonStars" />
+                </template>
+                <template #unchecked-icon>
+                    <n-icon :component="Sun" />
+                </template>
+            </n-switch>
         </n-gi>
 
     </n-grid>
@@ -29,15 +39,33 @@
     
 <script setup lang='ts'>
 import { NIcon, type MenuOption, type DropdownOption } from 'naive-ui'
-import { ref, h, type Component } from 'vue';
 import { GameControllerOutline, LanguageOutline } from '@vicons/ionicons5'
 import { FistRaised } from '@vicons/fa'
-import { H5 } from '@vicons/tabler'
+import { H5, Sun, MoonStars } from '@vicons/tabler'
 import { Md3DRotationOutlined } from '@vicons/material'
 import { LogoVmware, ContentDeliveryNetwork } from '@vicons/carbon'
 import useLocale from '@/Lang/useI18n'
+import { useSystemConfigStore } from '@/stores'
 
-/* ================================导航菜单配置项======================================= */
+// 组件内公用
+onBeforeMount(() => {
+    if (SystemConfigStore.theme !== null) {
+        theme.value = true
+    } else {
+        theme.value = false
+    }
+})
+
+onUnmounted(() => {
+    instance?.proxy?.$Bus.off("changeTheme")
+    instance?.proxy?.$Bus.off("changeLanguage")
+})
+const instance = getCurrentInstance() // 当前组件this
+const SystemConfigStore = useSystemConfigStore() // 系统设置store
+
+
+
+/* =============================导航菜单配置项==================================== */
 const activeKey = ref('')   // 菜单当前的选中值
 function renderIcon(icon: Component) { // 渲染vicons
     return () => h(NIcon, null, { default: () => h(icon) })
@@ -118,9 +146,11 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
 /* ================================搜索框======================================= */
 
 
+
 /* ================================语言切换======================================= */
-const { changeLocale, t } = useLocale()
-const languageOptions = [
+
+const { changeLocale, t } = useLocale() // i18n实例化以及一些常用方法
+const languageOptions = [ // 下拉配置项
     {
         label: '中文',
         key: 'zhCN',
@@ -134,14 +164,36 @@ const languageOptions = [
         key: 'ruRU'
     }
 ]
-const handelLanguageSelect = async (key: string | number, option: DropdownOption) => {  // 语言切换
+const handleLanguageSelect = async (key: string, option: DropdownOption) => {  // 语言切换
+
     changeLocale(key as string)
+
+    if (key == "zhCN") {
+        SystemConfigStore.changeLanguageStore(key, "dateZhCN")
+    } else if (key == "enUS") {
+        SystemConfigStore.changeLanguageStore(key, "dateEnUS")
+    } else {
+        SystemConfigStore.changeLanguageStore(key, "dateRuRU")
+    }
+
+    instance?.proxy?.$Bus.emit("changeLanguage", key)
 }
 
+/* ==============================深色明亮模式===================================== */
+const theme = ref(false)
+const handleThemeChange = async function (value: boolean) {
+    value ? instance?.proxy?.$Bus.emit("changeTheme", { type: true }) : instance?.proxy?.$Bus.emit("changeTheme", { type: false })
+}
 
-/* ================================个人信息/网站设置======================================= */
+/* ============================个人信息/网站设置=================================== */
 
 
 </script>
     
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.nav-last-module {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+</style>
