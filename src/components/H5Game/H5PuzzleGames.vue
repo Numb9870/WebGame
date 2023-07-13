@@ -7,7 +7,7 @@
             <GameNav v-show="showGameNav"></GameNav>
 
             <!-- 内容的展示区 -->
-            <n-scrollbar x-scrollable style="max-height: calc(100vh - 235px);">
+            <n-scrollbar x-scrollable style="max-height: calc(100vh - 230px);">
                 <router-view :type="route.query.type" :sort="route.query.sort"></router-view>
             </n-scrollbar>
 
@@ -18,6 +18,7 @@
     
 <script setup lang='ts'>
 import { useRouter, useRoute } from 'vue-router'
+
 
 onUnmounted(() => {
     instance?.proxy?.$Bus.off('GoBack')
@@ -30,10 +31,11 @@ const route = useRoute() // 当前路由
 const showGameNav = ref(true) // 是否展示游戏列表导航
 
 
+
 // 监听事件
 instance?.proxy?.$Bus.on("GoBack", async function (params: any) {
     showGameNav.value = true    // 开启游戏列表的库源统计
-    
+
 })
 instance?.proxy?.$Bus.on("PlayGame", async function () {
     showGameNav.value = false   // 关闭游戏列表的库源统计

@@ -5,6 +5,11 @@
 </template>
     
 <script setup lang='ts'>
+onMounted(() => {
+    loadingBar.finish()
+})
+
+const loadingBar = useLoadingBar() // 进度条
 
 
 </script>

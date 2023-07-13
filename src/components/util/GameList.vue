@@ -43,7 +43,8 @@ onUnmounted(() => {
 const router = useRouter() // 路由实例
 const instance = getCurrentInstance() // 实例
 const props = defineProps(['type', 'sort']) // 游戏的类型与分组
-const version = ref(null) // 游戏的版本
+const version = ref<string | null>(null) // 游戏的版本
+const loadingBar = useLoadingBar() // 进度条
 
 // 监听切换游戏版本事件
 instance?.proxy?.$Bus.on("changeVersion", async function (key: any) {
@@ -52,9 +53,22 @@ instance?.proxy?.$Bus.on("changeVersion", async function (key: any) {
 
 
 /* ********************************游玩加载游戏************************************* */
+const name = ref('')
 const playGame = (GameName: string) => {
+    loadingBar.start() // 开始加载进度条
     instance?.proxy?.$Bus.emit("PlayGame") // 加载所选游戏
-    router.push({ name: "2048", query: { type: props.type, sort: props.sort, GameName, version: version.value } })
+
+    if (version.value == null) { // 匹配游戏版本
+        // version为null时匹配最新版本
+        PuzzleGamesListArray.map(item => {
+            version.value = item.version[(item.version.length - 1)].key
+        })
+        name.value = GameName + '-' + version.value
+    } else {
+        name.value = GameName + '-' + version.value
+    }
+
+    router.push({ name: name.value, query: { type: props.type, sort: props.sort, GameName, version: version.value } })
 }
 </script>
     

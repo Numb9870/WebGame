@@ -1,12 +1,14 @@
 <template>
-    <n-button ghost @click="GoBack">
-        <template #icon>
-            <n-icon>
-                <ArrowBack />
-            </n-icon>
-        </template>
-        返回
-    </n-button>
+    <div class="container">
+        <n-button ghost @click="GoBack">
+            <template #icon>
+                <n-icon>
+                    <ArrowBack />
+                </n-icon>
+            </template>
+            返回
+        </n-button>
+    </div>
 </template>
     
 <script setup lang='ts'>
@@ -23,4 +25,15 @@ const GoBack = () => {
 }
 </script>
     
-<style></style>
+<style scoped lang="less">
+.container {
+    height: 65px;
+    max-height: 65px;
+    display: flex;
+    align-items: center;
+
+    .n-button {
+        margin-left: 50px;
+    }
+}
+</style>

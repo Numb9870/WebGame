@@ -7,7 +7,10 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    2048: typeof import('./src/components/H5Game/PuzzleGames/2048.vue')['default']
+    2048: typeof import('./src/components/H5Game/PuzzleGames/2048/2048.vue')['default']
+    '2048V0.0.1': typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.1.vue')['default']
+    '2048V0.0.2': typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.2.vue')['default']
+    copy: typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.1 copy.vue')['default']
     FightingGames: typeof import('./src/components/H5Game/FightingGames.vue')['default']
     FightingGamesList: typeof import('./src/components/H5Game/FightingGamesList.vue')['default']
     GameDescribe: typeof import('./src/components/util/GameDescribe.vue')['default']
@@ -32,6 +35,7 @@ declare module 'vue' {
     NLayoutFooter: typeof import('naive-ui')['NLayoutFooter']
     NLayoutHeader: typeof import('naive-ui')['NLayoutHeader']
     NLayoutSider: typeof import('naive-ui')['NLayoutSider']
+    NLoadingBarProvider: typeof import('naive-ui')['NLoadingBarProvider']
     NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NPopover: typeof import('naive-ui')['NPopover']

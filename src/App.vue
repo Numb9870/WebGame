@@ -1,9 +1,12 @@
 <template>
-  
-    <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
-
+  <!-- 全局配置 -->
+  <n-config-provider :theme="theme" :locale="locale" :date-locale="dateLocale">
+    <!-- 进度条 -->
+    <n-loading-bar-provider>
+      <!-- message -->
       <n-message-provider>
 
+        <!-- 页面 -->
         <n-layout>
 
           <!-- 导航 -->
@@ -18,9 +21,8 @@
         </n-layout>
 
       </n-message-provider>
-
-    </n-config-provider>
-  
+    </n-loading-bar-provider>
+  </n-config-provider>
 </template>
   
 <script setup lang='ts'>
@@ -86,7 +88,6 @@ instance?.proxy?.$Bus.on("changeLanguage", async function (params: any) {
 </script>
   
 <style scoped lang="less">
-
 .n-layout-header,
 .n-layout-footer {
   height: 80px;

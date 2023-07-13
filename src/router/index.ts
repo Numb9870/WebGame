@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -32,7 +31,18 @@ const router = createRouter({
             {
               path: "2048",
               name: "2048",
-              component: () => import('../components/H5Game/PuzzleGames/2048.vue')
+              children: [
+                {
+                  path: "2048-v0.0.1",
+                  name: "2048-v0.0.1",
+                  component: () => import('../components/H5Game/PuzzleGames/2048/2048-v0.0.1.vue')
+                },
+                {
+                  path: "2048-v0.0.2",
+                  name: "2048-v0.0.2",
+                  component: () => import('../components/H5Game/PuzzleGames/2048/2048-v0.0.2.vue')
+                },
+              ]
             }
           ]
         }
@@ -41,5 +51,6 @@ const router = createRouter({
 
   ]
 })
+
 
 export default router

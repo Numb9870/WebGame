@@ -10,6 +10,19 @@
 </template>
     
 <script setup lang='ts'>
+import router from '@/router'
+
+
+/* *********************************配置进度条********************************* */
+const loadingBar = useLoadingBar() // 进度条实例
+router.beforeEach((to, from) => { // 全局前置守卫
+    loadingBar.start()
+    return true
+})
+router.afterEach((to, from) => { // 全局后置钩子
+    loadingBar.finish()
+})
+
 
 </script>
     
