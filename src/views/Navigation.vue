@@ -74,8 +74,7 @@ function renderFontIcon(icon: String) { // 渲染fonticon
     return () => h("svg", { class: "fonticon icon", "aria-hidden": "true" }, h("use", { "xlink:href": `#${icon}` }))
 }
 const menuOptions: MenuOption[] = [ // 菜单的数据
-    {
-        // logo
+    {   // logo
         label: () => h(
             RouterLink,
             {
@@ -88,8 +87,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
         key: 'WebGameLogo',
         icon: renderIcon(GameControllerOutline)
     },
-    {
-        // H5类的游戏
+    {   // H5类的游戏
         label: "H5Game",
         key: "H5Game",
         children: [
@@ -99,12 +97,16 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
                         RouterLink,
                         {
                             to: {
-                                name: 'FightingGamesList',
+                                name: 'H5FightingGames',
+                                query: {
+                                    type: 'H5Game',
+                                    sort: 'H5FightingGames'
+                                }
                             }
                         },
                         { default: () => t('NavbarItem.Fighting') }
                     ),
-                key: 'FightingGames',
+                key: 'H5FightingGames',
                 icon: renderFontIcon("icon-sanda")
             },
             {
@@ -113,19 +115,22 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
                         RouterLink,
                         {
                             to: {
-                                name: 'PuzzleGamesList',
+                                name: 'H5PuzzleGames',
+                                query: {
+                                    type: 'H5Game',
+                                    sort: 'H5PuzzleGames'
+                                }
                             }
                         },
                         { default: () => t('NavbarItem.Puzzle') }
                     ),
-                key: 'PuzzleGames',
+                key: 'H5PuzzleGames',
                 icon: renderFontIcon("icon-yizhipintu")
             }
         ],
         icon: renderIcon(H5)
     },
-    {
-        // 3D类的游戏
+    {   // 3D类的游戏
         label: "3DGame",
         key: "3DGame",
         children: [
@@ -137,8 +142,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
         ],
         icon: renderIcon(Md3DRotationOutlined)
     },
-    {
-        // 网络类的游戏
+    {   // 网络类的游戏
         label: "OLGame",
         key: "OLGame",
         children: [
@@ -150,8 +154,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
         ],
         icon: renderIcon(ContentDeliveryNetwork)
     },
-    {
-        // 模拟器游戏
+    {   // 模拟器游戏
         label: "VMGame",
         key: "VMGame",
         children: [
@@ -163,8 +166,7 @@ const menuOptions: MenuOption[] = [ // 菜单的数据
         ],
         icon: renderIcon(LogoVmware)
     },
-    {
-        // 游戏资源
+    {   // 游戏资源
         label: "GameSource",
         key: "GameSource",
         children: [

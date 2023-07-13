@@ -18,17 +18,16 @@ onBeforeMount(() => {
     version.value = props.gameData[(props.gameData.length - 1)].key
 })
 
+const props = defineProps(['gameData']) // 当前游戏的所有数据
+const instance = getCurrentInstance() // 实例
+const version = ref('') // 游戏版本
+const describe = ref('')    // 版本描述
+const options = ref()   // select展示游戏的所有版本
 
-const instance = getCurrentInstance() // 当前组件this
-
-const props = defineProps(['gameData'])
-const version = ref('')
-const describe = ref('')
-const options = ref()
-
-// 匹配版本描述
+/* ***********************************选择游戏版本*********************************** */
 const matchDescribe = (value: any, option: any) => {
     describe.value = option.describe
+    instance?.proxy?.$Bus.emit("changeVersion", option.key)
 }
 
 

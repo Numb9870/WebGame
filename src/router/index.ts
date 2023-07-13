@@ -10,19 +10,31 @@ const router = createRouter({
       component: () => import('../components/Main.vue')
     },
     {
-      path: '/FightingGamesList',
-      name: 'FightingGamesList',
-      component: () => import('../components/H5Game/FightingGamesList.vue')
-    },
-    {
-      path: '/PuzzleGamesList',
-      name: 'PuzzleGamesList',
-      component: () => import('../components/H5Game/PuzzleGamesList.vue'),
+      path: '/H5Game',
+      name: 'H5Game',
       children: [
         {
-          path: "2048",
-          name: "2048",
-          component: () => import('../components/H5Game/PuzzleGames/2048.vue')
+          path: 'H5FightingGames',
+          name: 'H5FightingGames',
+          component: () => import('../components/H5Game/H5FightingGames.vue')
+        },
+        {
+          path: "H5PuzzleGames",
+          name: "H5PuzzleGames",
+          component: () => import('../components/H5Game/H5PuzzleGames.vue'),
+          redirect: { name: 'GameList' },
+          children: [
+            {
+              path: "GameList",
+              name: "GameList",
+              component: () => import('../components/util/GameList.vue')
+            },
+            {
+              path: "2048",
+              name: "2048",
+              component: () => import('../components/H5Game/PuzzleGames/2048.vue')
+            }
+          ]
         }
       ]
     },

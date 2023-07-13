@@ -8,8 +8,14 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     2048: typeof import('./src/components/H5Game/PuzzleGames/2048.vue')['default']
+    FightingGames: typeof import('./src/components/H5Game/FightingGames.vue')['default']
     FightingGamesList: typeof import('./src/components/H5Game/FightingGamesList.vue')['default']
-    GameDescribe: typeof import('./src/components/GameDescribe.vue')['default']
+    GameDescribe: typeof import('./src/components/util/GameDescribe.vue')['default']
+    GameDetailNav: typeof import('./src/components/util/GameDetailNav.vue')['default']
+    GameList: typeof import('./src/components/util/GameList.vue')['default']
+    GameNav: typeof import('./src/components/util/GameNav.vue')['default']
+    H5FightingGames: typeof import('./src/components/H5Game/H5FightingGames.vue')['default']
+    H5PuzzleGames: typeof import('./src/components/H5Game/H5PuzzleGames.vue')['default']
     Main: typeof import('./src/components/Main.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
@@ -35,7 +41,7 @@ declare module 'vue' {
     NStatistic: typeof import('naive-ui')['NStatistic']
     NSwitch: typeof import('naive-ui')['NSwitch']
     NTooltip: typeof import('naive-ui')['NTooltip']
-    PuzzleGamesList: typeof import('./src/components/H5Game/PuzzleGamesList.vue')['default']
+    PuzzleGames: typeof import('./src/components/H5Game/PuzzleGames.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

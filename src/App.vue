@@ -28,7 +28,6 @@ import Navigation from '@/views/Navigation.vue'
 import { zhCN, dateZhCN, enUS, dateEnUS, ruRU, dateRuRU, darkTheme, type NLocale, type NDateLocale, type GlobalTheme } from 'naive-ui'
 import { useSystemConfigStore } from './stores';
 import useLocale from '@/Lang/useI18n'
-import { RouterLink } from 'vue-router'
 
 // 组件内公用
 const theme = ref<GlobalTheme | null>(null) // 主题
