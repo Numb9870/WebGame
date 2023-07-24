@@ -11,7 +11,7 @@ export const useSystemConfigStore = defineStore(Names.SystemConfig, {
     showDataType: "Grid"
   }),
   actions: {
-    changeThemeStore(type: GlobalTheme | null) {
+    changeThemeStore(type: boolean | null) {
       this.theme = type as any
     },
     changeLanguageStore(NLocale: string, NDateLocale: string) {

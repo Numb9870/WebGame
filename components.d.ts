@@ -7,12 +7,8 @@ export {}
 
 declare module 'vue' {
   export interface GlobalComponents {
-    2048: typeof import('./src/components/H5Game/PuzzleGames/2048/2048.vue')['default']
     '2048V0.0.1': typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.1.vue')['default']
     '2048V0.0.2': typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.2.vue')['default']
-    copy: typeof import('./src/components/H5Game/PuzzleGames/2048/2048-v0.0.1 copy.vue')['default']
-    FightingGames: typeof import('./src/components/H5Game/FightingGames.vue')['default']
-    FightingGamesList: typeof import('./src/components/H5Game/FightingGamesList.vue')['default']
     GameDescribe: typeof import('./src/components/util/GameDescribe.vue')['default']
     GameDetailNav: typeof import('./src/components/util/GameDetailNav.vue')['default']
     GameList: typeof import('./src/components/util/GameList.vue')['default']
@@ -22,9 +18,7 @@ declare module 'vue' {
     Main: typeof import('./src/components/Main.vue')['default']
     NButton: typeof import('naive-ui')['NButton']
     NCard: typeof import('naive-ui')['NCard']
-    NCol: typeof import('naive-ui')['NCol']
     NConfigProvider: typeof import('naive-ui')['NConfigProvider']
-    NDatePicker: typeof import('naive-ui')['NDatePicker']
     NDropdown: typeof import('naive-ui')['NDropdown']
     NGi: typeof import('naive-ui')['NGi']
     NGrid: typeof import('naive-ui')['NGrid']
@@ -39,13 +33,10 @@ declare module 'vue' {
     NMenu: typeof import('naive-ui')['NMenu']
     NMessageProvider: typeof import('naive-ui')['NMessageProvider']
     NPopover: typeof import('naive-ui')['NPopover']
-    NRow: typeof import('naive-ui')['NRow']
     NScrollbar: typeof import('naive-ui')['NScrollbar']
     NSelect: typeof import('naive-ui')['NSelect']
     NStatistic: typeof import('naive-ui')['NStatistic']
     NSwitch: typeof import('naive-ui')['NSwitch']
-    NTooltip: typeof import('naive-ui')['NTooltip']
-    PuzzleGames: typeof import('./src/components/H5Game/PuzzleGames.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

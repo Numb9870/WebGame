@@ -41,8 +41,9 @@ const { changeLocale } = useLocale() // i18n实例化以及一些常用方法
 
 // init
 onBeforeMount(() => {
+  
   // 修改主题
-  theme.value = SystemConfigStore.theme
+  SystemConfigStore.theme ? theme.value = darkTheme : theme.value = null
   // 修改语言
   if (SystemConfigStore.NLocale == "zhCN") {
     locale.value = zhCN
@@ -64,7 +65,7 @@ onBeforeMount(() => {
 instance?.proxy?.$Bus.on("changeTheme", async function (params: any) {
   if (params.type) {
     theme.value = darkTheme
-    SystemConfigStore.changeThemeStore(darkTheme)
+    SystemConfigStore.changeThemeStore(params.type)
   } else {
     theme.value = null
     SystemConfigStore.changeThemeStore(null)

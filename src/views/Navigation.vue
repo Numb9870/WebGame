@@ -26,10 +26,10 @@
             </n-dropdown>
             <!-- 深色明亮模式--bug:首次渲染时不显示自定义template中的sort（unchecked-icon） -->
             <n-switch v-model:value="theme" size="large" @update:value="handleThemeChange">
-                <template #checked>
+                <template #checked-icon>
                     <n-icon :component="MoonStars" />
                 </template>
-                <template #unchecked>
+                <template #unchecked-icon>
                     <n-icon :component="Sun" />
                 </template>
             </n-switch>
